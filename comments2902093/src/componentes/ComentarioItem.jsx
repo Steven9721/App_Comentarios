@@ -1,11 +1,15 @@
 import {React, useState} from 'react'
+import Card from './Card'
+import {FaTimes} from 'react-icons/fa' 
 
-const ComentarioItem = ({comentario, calificacion}) => {
+const ComentarioItem = ({comentario, calificacion, id, handleDelete}) => {
   //Manejo del estado de un comentario
   //comentario y calificacion como atributos
   //mediante el uso de ESTADOS
   const [comment, setComment] = useState(comentario)
   const [rating, setRating] = useState(calificacion)
+  const [identificacion, setIdentificacion] = useState(id)
+
   
   const cambiarRating = () => {
     //Cambia la calificación del comentario
@@ -14,17 +18,14 @@ const ComentarioItem = ({comentario, calificacion}) => {
 
 
     return (
-    <div className='card'>
-      <div className='num-display'>
-        {rating}
-      </div>
-      <div className='text-display'>
-        {comment}
-      </div>
-      <button onClick={cambiarRating}>
-        Cambiar Calificacion
-      </button>
-    </div>
+      <Card reverse={false}>
+        <div className='num-display'>{rating}</div>
+        <button onClick={() => handleDelete(identificacion)} 
+        className='close'>
+        <FaTimes color='purple'/>     
+        </button>
+        <div className='text-display'>{comentario}</div>
+      </Card>
     
   );
 }
