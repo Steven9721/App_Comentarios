@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const ComentarioStats = ({ comentarios }) => {
   // El número de comentarios que hay en el arreglo de comentarios
@@ -18,4 +18,4 @@ const ComentarioStats = ({ comentarios }) => {
   );
 }
 
-export default ComentarioStats;
+export default ComentarioStats

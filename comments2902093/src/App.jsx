@@ -33,6 +33,14 @@ const borrarItem= id => {
 
     if(loading === true) return (<h1>Cargando Comentarios...</h1>);
 
+    <Card reverse={true}></Card>
+    const addComentario = (newComentario) => {
+        const id = comments.length ? Math.max(...comments.map(c => c.id)) + 1 : 1;
+        const comentarioConId = { id, ...newComentario };
+        setComments([...comments, comentarioConId]);
+    };
+
+
 
     return (
         <div className='container'>
@@ -42,8 +50,7 @@ const borrarItem= id => {
         ficha={ficha}
         CentroFormacion={CentroFormacion} />
 
-        <ComentarioForm />
-        
+<ComentarioForm handleAdd={addComentario} />        
         <ComentarioStats comentarios={comments}/>        
         
        <ComentarioLista 
